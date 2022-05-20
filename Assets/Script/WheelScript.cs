@@ -33,6 +33,7 @@ public class WheelScript : MonoBehaviour
 	public SpriteRenderer spriteRenderer;
 	private void Start()
 	{
+		rotationTime = 3;
 		rotationNumberFrom = 1;
 		rotationNumberTo = 4;
 		eachAnglePrize = wheelCircle / totalPrize;
@@ -40,13 +41,7 @@ public class WheelScript : MonoBehaviour
 	}
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Alpha1))
-		{
-			desiredPrize = 1;
-			rotationNumber = Random.Range(rotationNumberFrom, rotationNumberTo);
-			Debug.Log(string.Format("Number Rotation of Wheel: {0}", rotationNumber));
-			SpinImmediately();
-		}
+		KeyCodeInput();
 	}
 	//xoay vòng quay
 	IEnumerator SpinWheel()
@@ -84,7 +79,73 @@ public class WheelScript : MonoBehaviour
 		StartCoroutine(SpinWheel());
 	
 	}
-	
-	
-	
+	void KeyCodeInput()
+	{
+		if (Input.GetKeyDown(KeyCode.Alpha1))
+		{
+			desiredPrize = 1;
+			rotationNumber = Random.Range(rotationNumberFrom, rotationNumberTo);
+			Debug.Log(string.Format("Number Rotation of Wheel: {0}", rotationNumber));
+			SpinImmediately();
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha2))
+		{
+			desiredPrize = 2;
+			rotationNumber = Random.Range(rotationNumberFrom, rotationNumberTo);
+			Debug.Log(string.Format("Number Rotation of Wheel: {0}", rotationNumber));
+			SpinImmediately();
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha3))
+		{
+			desiredPrize = 3;
+			rotationNumber = Random.Range(rotationNumberFrom, rotationNumberTo);
+			Debug.Log(string.Format("Number Rotation of Wheel: {0}", rotationNumber));
+			SpinImmediately();
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha4))
+		{
+			desiredPrize = 4;
+			rotationNumber = Random.Range(rotationNumberFrom, rotationNumberTo);
+			Debug.Log(string.Format("Number Rotation of Wheel: {0}", rotationNumber));
+			SpinImmediately();
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha5))
+		{
+			desiredPrize = 5;
+			rotationNumber = Random.Range(rotationNumberFrom, rotationNumberTo);
+			Debug.Log(string.Format("Number Rotation of Wheel: {0}", rotationNumber));
+			SpinImmediately();
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha6))
+		{
+			desiredPrize = 6;
+			rotationNumber = Random.Range(rotationNumberFrom, rotationNumberTo);
+			Debug.Log(string.Format("Number Rotation of Wheel: {0}", rotationNumber));
+			SpinImmediately();
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha7))
+		{
+			desiredPrize = 7;
+			rotationNumber = Random.Range(rotationNumberFrom, rotationNumberTo);
+			Debug.Log(string.Format("Number Rotation of Wheel: {0}", rotationNumber));
+			SpinImmediately();
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha8))
+		{
+			desiredPrize = 8;
+			rotationNumber = Random.Range(rotationNumberFrom, rotationNumberTo);
+			Debug.Log(string.Format("Number Rotation of Wheel: {0}", rotationNumber));
+			SpinImmediately();
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha9))
+		{
+			desiredPrize = 9;
+			rotationNumber = Random.Range(rotationNumberFrom, rotationNumberTo);
+			Debug.Log(string.Format("Number Rotation of Wheel: {0}", rotationNumber));
+			SpinImmediately();
+		}
+
+	}
+
+
 }
