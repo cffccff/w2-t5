@@ -3136,8 +3136,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  audioSource: {fileID: 0}
-  clip: {fileID: 0}
+  audioSource: {fileID: 1933969021}
+  clip: {fileID: 8300000, guid: 5a8fcc3961ec31d438f8bb96b64e2735, type: 3}
   desiredPrize: 1
   textMeshPro: {fileID: 0}
   spriteRenderer: {fileID: 0}

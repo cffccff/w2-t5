@@ -70,14 +70,14 @@ public class WheelScript : MonoBehaviour
 			this.transform.eulerAngles = new Vector3(0, 0, newAngle);
 
 		}
-		
+		audioSource.Stop();
 
 	}
 	
 	void SpinImmediately()
 	{
 		StartCoroutine(SpinWheel());
-	
+		audioSource.PlayOneShot(clip);
 	}
 	void KeyCodeInput()
 	{
