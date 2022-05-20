@@ -3108,10 +3108,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalPrize: 9
-  rotationTime: 3
+  rotationTime: 0
   rotationNumberFrom: 0
   rotationNumberTo: 0
-  parent: {fileID: 1182445654}
+  parent: {fileID: 0}
   curve:
     serializedVersion: 2
     m_Curve:
