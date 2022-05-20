@@ -45,8 +45,46 @@ public class WheelScript : MonoBehaviour
 			desiredPrize = 1;
 			rotationNumber = Random.Range(rotationNumberFrom, rotationNumberTo);
 			Debug.Log(string.Format("Number Rotation of Wheel: {0}", rotationNumber));
-			
+			SpinImmediately();
 		}
 	}
+	//xoay vòng quay
+	IEnumerator SpinWheel()
+	{
 
+	
+		currentTime = 0;
+		if (desiredPrize % 2 == 0)
+		{
+			Debug.Log("Prize is: " + desiredPrize + " Heart");
+		}
+		else
+		{
+			Debug.Log("Prize is: " + desiredPrize + " Coin");
+		}
+		//calculate the wheel need to rotate degree
+		float calculatedAngle = (rotationNumber * wheelCircle) + eachAnglePrize * desiredPrize - eachAnglePrize;
+		Debug.Log(calculatedAngle);
+		while (currentTime < rotationTime)
+		{
+
+			yield return new WaitForEndOfFrame();
+
+			currentTime += Time.deltaTime;
+			newAngle = calculatedAngle * curve.Evaluate(currentTime / rotationTime);
+			this.transform.eulerAngles = new Vector3(0, 0, newAngle);
+
+		}
+		
+
+	}
+	
+	void SpinImmediately()
+	{
+		StartCoroutine(SpinWheel());
+	
+	}
+	
+	
+	
 }
