@@ -8,11 +8,13 @@ using UnityEngine.SceneManagement;
 public class WheelScript : MonoBehaviour
 {
 	//total Prize in the fortune wheel
-	public int totalPrize = 9;
+	[SerializeField] int totalPrize = 9;
 	//Hashset for store unique number for counting all prize have been selected?
 	HashSet<int> list = new HashSet<int>();
+	//
+	[SerializeField] float currentTime = 0;
 	//Time take to finish rotation Wheel
-	public float rotationTime;
+	[SerializeField] float rotationTime;
 	//Random from 2 number 
 	[SerializeField] int rotationNumberFrom;
 	[SerializeField] int rotationNumberTo;
@@ -22,25 +24,38 @@ public class WheelScript : MonoBehaviour
 	private const float wheelCircle = 360f;
 	//degree of a Prize in a circle
 	private float eachAnglePrize;
-	public Transform parent;
-	private float currentTime;
 	public AnimationCurve curve;
 	public AudioSource audioSource;
 	public AudioClip clip;
 	[SerializeField] int desiredPrize = 1;
-	float newAngle;
+	private float newAngle;
 	public TextMeshPro textMeshPro;
-
 	public SpriteRenderer spriteRenderer;
-	private void Start()
+	private GameObject home;
+	private static WheelScript instance;
+	private void Awake()
+    {
+		home = GameObject.Find("Fortune Wheel");
+		if (instance != null && instance != home)
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			instance = this;
+		}
+	}
+    private void Start()
 	{
+		
 		rotationTime = 2;
 		rotationNumberFrom = 1;
 		rotationNumberTo = 4;
 		eachAnglePrize = wheelCircle / totalPrize;
-
+		DontDestroyOnLoad(home);
+		
 	}
-
+	
 	private void Update()
 	{
 		KeyCodeInput();
@@ -120,8 +135,14 @@ public class WheelScript : MonoBehaviour
 		}
 
 
+		ChangeScene();
 
-
+	}
+	
+	void ChangeScene()
+    {
+		SceneManager.LoadScene("Level_" + desiredPrize);
+		
 
 	}
 	void BlackTextAndSrpite(int i)
@@ -221,6 +242,6 @@ public class WheelScript : MonoBehaviour
 			Debug.Log(string.Format("Number Rotation of Wheel: {0}", rotationNumber));
 			SpinImmediately();
 		}
-
+       
 	}
 }
