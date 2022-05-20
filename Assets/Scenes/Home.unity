@@ -2000,7 +2000,7 @@ GameObject:
   - component: {fileID: 1308802306}
   m_Layer: 0
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: DontDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3073,7 +3073,7 @@ GameObject:
   - component: {fileID: 1933969021}
   m_Layer: 0
   m_Name: Fortune Wheel
-  m_TagString: Untagged
+  m_TagString: DontDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3108,10 +3108,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalPrize: 9
+  currentTime: 0
   rotationTime: 0
   rotationNumberFrom: 0
   rotationNumberTo: 0
-  parent: {fileID: 0}
   curve:
     serializedVersion: 2
     m_Curve:
