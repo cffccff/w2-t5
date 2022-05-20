@@ -30,24 +30,27 @@ public class WheelScript : MonoBehaviour
 	[SerializeField] int desiredPrize = 1;
 	float newAngle;
 	public TextMeshPro textMeshPro;
+
 	public SpriteRenderer spriteRenderer;
 	private void Start()
 	{
-		rotationTime = 3;
+		rotationTime = 2;
 		rotationNumberFrom = 1;
 		rotationNumberTo = 4;
 		eachAnglePrize = wheelCircle / totalPrize;
 
 	}
+
 	private void Update()
 	{
 		KeyCodeInput();
 	}
+
 	//xoay vòng quay
 	IEnumerator SpinWheel()
 	{
 
-	
+		ResetAllColorPrize();
 		currentTime = 0;
 		if (desiredPrize % 2 == 0)
 		{
@@ -72,12 +75,86 @@ public class WheelScript : MonoBehaviour
 		}
 		audioSource.Stop();
 
+		switch (desiredPrize)
+		{
+
+			case 1:
+				BlackTextAndSrpite(desiredPrize);
+				CountPrizeBlacked(desiredPrize);
+				break;
+			case 2:
+				BlackTextAndSrpite(desiredPrize);
+				CountPrizeBlacked(desiredPrize);
+				break;
+			case 3:
+				BlackTextAndSrpite(desiredPrize);
+				CountPrizeBlacked(desiredPrize);
+				break;
+			case 4:
+				BlackTextAndSrpite(desiredPrize);
+				CountPrizeBlacked(desiredPrize);
+				break;
+			case 5:
+				BlackTextAndSrpite(desiredPrize);
+				CountPrizeBlacked(desiredPrize);
+				break;
+			case 6:
+				BlackTextAndSrpite(desiredPrize);
+				CountPrizeBlacked(desiredPrize);
+				break;
+			case 7:
+				BlackTextAndSrpite(desiredPrize);
+				CountPrizeBlacked(desiredPrize);
+				break;
+			case 8:
+				BlackTextAndSrpite(desiredPrize);
+				CountPrizeBlacked(desiredPrize);
+				break;
+			case 9:
+				BlackTextAndSrpite(desiredPrize);
+				CountPrizeBlacked(desiredPrize);
+				break;
+
+			default:
+				break;
+		}
+
+
+
+
+
 	}
-	
+	void BlackTextAndSrpite(int i)
+	{
+		textMeshPro = GameObject.Find("/Fortune Wheel/Data/Gift " + i + "/Text (TMP)").GetComponent<TextMeshPro>();
+		spriteRenderer = GameObject.Find("/Fortune Wheel/Data/Gift " + i + "/Sprite").GetComponent<SpriteRenderer>();
+		textMeshPro.color = new Color(0, 0, 0, 255);
+		spriteRenderer.color = new Color(0, 0, 0, 255);
+	}
 	void SpinImmediately()
 	{
 		StartCoroutine(SpinWheel());
 		audioSource.PlayOneShot(clip);
+	}
+	void CountPrizeBlacked(int i)
+	{
+		list.Add(i);
+
+	}
+	void ResetAllColorPrize()
+	{
+		if (list.Count == 9)
+		{
+			for (int i = 1; i <= totalPrize; i++)
+			{
+				textMeshPro = GameObject.Find("/Fortune Wheel/Data/Gift " + i + "/Text (TMP)").GetComponent<TextMeshPro>();
+				spriteRenderer = GameObject.Find("/Fortune Wheel/Data/Gift " + i + "/Sprite").GetComponent<SpriteRenderer>();
+				textMeshPro.color = new Color(255, 255, 255, 255);
+				spriteRenderer.color = new Color(255, 255, 255, 255);
+			}
+			list.Clear();
+
+		}
 	}
 	void KeyCodeInput()
 	{
@@ -146,6 +223,4 @@ public class WheelScript : MonoBehaviour
 		}
 
 	}
-
-
 }
